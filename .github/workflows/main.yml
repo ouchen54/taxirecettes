@@ -30,6 +30,11 @@ jobs:
           unzip -o TaxiRecettes-v1.2-source.zip
           ls -la TaxiRecettes-v1.2-source
 
+      - name: Enable AndroidX
+        working-directory: TaxiRecettes-v1.2-source
+        run: |
+          echo "android.useAndroidX=true" > gradle.properties
+
       - name: Build APK
         working-directory: TaxiRecettes-v1.2-source
         run: gradle assembleDebug --stacktrace
